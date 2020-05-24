@@ -1,7 +1,7 @@
 {
   "name": "powerwall-adapter",
   "display_name": "Tesla Powerwall",
-  "version": "0.6.0",
+  "version": "0.1.3",
   "description": "Tesla Powerwall adapter plugin for Mozilla WebThings Gateway",
   "author": "Astiolo",
   "main": "main.py",
