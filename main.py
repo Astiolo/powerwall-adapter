@@ -11,7 +11,7 @@ sys.path.append(path.join(path.dirname(path.abspath(__file__)), 'lib'))
 from pkg.powerwall_adapter import PowerwallAdapter 
 
 
-_DEBUG = True
+_DEBUG = False
 _ADAPTER = None
 
 print = functools.partial(print, flush=True)

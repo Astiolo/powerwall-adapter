@@ -18,28 +18,19 @@ class PowerwallDev(Device):
 		meters = self.powerwall.get_meters()
 
 		self.description = "Powerwall"
-		self._type = ['EnergyMonitor']
+		self._type = ['EnergyMonitor','MultiLevelSensor']
 
-		# self.properties['charge'] = Property(
-		# 		self,
-		# 		'charge',
-		# 		{
-		# 			'@type': 'LevelProperty',
-		# 			'title': 'Battery Charge',
-		# 			'type': 'integer',
-		# 			'unit': 'percent',
-		# 			'minimum': 0,
-		# 			'maximum': 100,
-		# 		}
-		# 	)
 		self.properties['charge'] = Property(
 				self,
 				'charge',
 				{
-					'@type': 'InstantaneousPowerProperty',
+					'@type': 'LevelProperty',
 					'title': 'Battery Charge',
-					'type': 'number',
+					'type': 'integer',
 					'unit': 'percent',
+					'minimum': 0,
+					'maximum': 100,
+					'readOnly': True
 				}
 			)
 		self.properties['batteryFlow'] = Property(
@@ -47,7 +38,7 @@ class PowerwallDev(Device):
 				'batteryFlow',
 				{
 					'@type': 'InstantaneousPowerProperty',
-					'title': 'Battery Power',
+					'title': 'Battery',
 					'type': 'number',
 					'unit': 'watt',
 				}
@@ -57,7 +48,7 @@ class PowerwallDev(Device):
 				'loadFlow',
 				{
 					'@type': 'InstantaneousPowerProperty',
-					'title': 'Load Power',
+					'title': 'Load',
 					'type': 'number',
 					'unit': 'watt',
 				}
@@ -67,7 +58,7 @@ class PowerwallDev(Device):
 				'gridFlow',
 				{
 					'@type': 'InstantaneousPowerProperty',
-					'title': 'Grid Power',
+					'title': 'Grid',
 					'type': 'number',
 					'unit': 'watt',
 				}
@@ -77,7 +68,7 @@ class PowerwallDev(Device):
 				'solarFlow',
 				{
 					'@type': 'InstantaneousPowerProperty',
-					'title': 'Solar Power',
+					'title': 'Solar',
 					'type': 'number',
 					'unit': 'watt',
 				}
@@ -109,5 +100,4 @@ class PowerwallDev(Device):
 				print("Unknown exception during polling")
 				continue
 
-			print("Sleeping for " + str(_POLL_INTERVAL))
 			time.sleep(_POLL_INTERVAL)
