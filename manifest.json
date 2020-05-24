@@ -1,0 +1,38 @@
+{
+  "author": "Astiolo",
+  "description": "Tesla Powerwall plugin for Mozilla WebThings Gateway",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "python3 {path}/main.py",
+      "primary_type": "adapter",
+      "strict_max_version": "*",
+      "strict_min_version": "0.10.0"
+    }
+  },
+  "homepage_url": "https://github.com/Astiolo/powerwall-adapter",
+  "id": "powerwall-adapter",
+  "license": "MPL-2.0",
+  "manifest_version": 1,
+  "name": "Tesla Powerwall",
+  "options": {
+    "default": {
+      "addresses": []
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "addresses"
+      ],
+      "properties": {
+        "addresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "short_name": "Powerwall",
+  "version": "0.1.0"
+}
